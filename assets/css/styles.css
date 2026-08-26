@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background-color: #eef3f8;
+}
+
+.header {
+    padding: 24px 40px;
+    color: white;
+    background-color: #08111f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.etiqueta {
+    margin: 0 0 6px;
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    padding: 48px 40px;
+    color: white;
+    background: linear-gradient(135deg, #0d1b2f, #155e75);
+}
+
+.hero h2 {
+    margin-top: 0;
+    font-size: 36px;
+}
+
+.hero p {
+    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.panel {
+    width: min(1100px, 92%);
+    margin: 32px auto;
+    padding: 28px;
+    background-color: white;
+    border: 1px solid #d7e1ec;
+}
+
+.formulario {
+    display: grid;
+    gap: 12px;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b8c6d6;
+    font-size: 16px;
+}
+
+.formulario button {
+    margin-top: 10px;
+    padding: 13px 18px;
+    color: #04111f;
+    background-color: #00e5ff;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ayuda {
+    color: #64748b;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #d7e1ec;
+    text-align: left;
+}
+
+th {
+    color: white;
+    background-color: #0d1b2f;
+}
+
+.footer {
+    padding: 24px;
+    color: white;
+    background-color: #08111f;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+}
