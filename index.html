@@ -8,9 +8,12 @@
 </head>
 <body>
     <header class="header">
-        <div>
-            <p class="etiqueta">Proyecto CRUD</p>
-            <h1>Baja Respaw PC</h1>
+        <div class="logo">
+            <span class="logo-marca">BR</span>
+            <div>
+                <p class="etiqueta">Panel CRUD</p>
+                <h1>Baja Respaw PC</h1>
+            </div>
         </div>
 
         <nav class="menu">
@@ -21,70 +24,80 @@
 
     <main>
         <section class="hero">
-            <h2>Control de servicios de reparacion</h2>
-            <p>
-                Registra clientes, equipos y servicios para llevar el control de reparaciones
-                usando JavaScript, DOM y localStorage.
-            </p>
-        </section>
+            <div>
+                <p class="etiqueta">JavaScript + DOM + localStorage</p>
+                <h2>Control de servicios de reparacion</h2>
+                <p>
+                    Registra clientes, equipos y servicios para llevar el control de reparaciones
+                    usando JavaScript, DOM y localStorage.
+                </p>
+            </div>
 
-        <section id="registro" class="panel">
-            <h2>Registrar servicio</h2>
-
-            <form id="serviceForm" class="formulario">
-                <input type="hidden" id="serviceId">
-
-                <label for="clientName">Nombre del cliente</label>
-                <input type="text" id="clientName" placeholder="Ej. Luis Hernandez" required>
-
-                <label for="device">Equipo</label>
-                <input type="text" id="device" placeholder="Ej. Laptop Lenovo" required>
-
-                <label for="serviceType">Tipo de servicio</label>
-                <select id="serviceType" required>
-                    <option value="">Selecciona una opcion</option>
-                    <option value="Limpieza interna">Limpieza interna</option>
-                    <option value="Cambio de pantalla">Cambio de pantalla</option>
-                    <option value="Instalacion de Windows">Instalacion de Windows</option>
-                    <option value="Armado de PC">Armado de PC</option>
-                    <option value="Recuperacion de archivos">Recuperacion de archivos</option>
-                </select>
-
-                <label for="status">Estado</label>
-                <select id="status" required>
-                    <option value="Pendiente">Pendiente</option>
-                    <option value="En proceso">En proceso</option>
-                    <option value="Terminado">Terminado</option>
-                </select>
-
-                <label for="price">Precio</label>
-                <input type="number" id="price" placeholder="Ej. 450" min="0" required>
-
-                <button type="submit" id="submitButton">Guardar servicio</button>
-            </form>
-        </section>
-
-        <section id="servicios" class="panel">
-            <h2>Servicios registrados</h2>
-            <p class="ayuda">Aqui apareceran los servicios guardados.</p>
-
-            <div class="tabla-contenedor">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Cliente</th>
-                            <th>Equipo</th>
-                            <th>Servicio</th>
-                            <th>Estado</th>
-                            <th>Precio</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="servicesTable">
-                    </tbody>
-                </table>
+            <div class="hero-card">
+                <span>CRUD</span>
+                <strong>Create Read Update Delete</strong>
             </div>
         </section>
+
+        <div class="dashboard">
+            <section id="registro" class="panel">
+                <h2>Registrar servicio</h2>
+
+                <form id="serviceForm" class="formulario">
+                    <input type="hidden" id="serviceId">
+
+                    <label for="clientName">Nombre del cliente</label>
+                    <input type="text" id="clientName" placeholder="Ej. Luis Hernandez" required>
+
+                    <label for="device">Equipo</label>
+                    <input type="text" id="device" placeholder="Ej. Laptop Lenovo" required>
+
+                    <label for="serviceType">Tipo de servicio</label>
+                    <select id="serviceType" required>
+                        <option value="">Selecciona una opcion</option>
+                        <option value="Limpieza interna">Limpieza interna</option>
+                        <option value="Cambio de pantalla">Cambio de pantalla</option>
+                        <option value="Instalacion de Windows">Instalacion de Windows</option>
+                        <option value="Armado de PC">Armado de PC</option>
+                        <option value="Recuperacion de archivos">Recuperacion de archivos</option>
+                    </select>
+
+                    <label for="status">Estado</label>
+                    <select id="status" required>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="En proceso">En proceso</option>
+                        <option value="Terminado">Terminado</option>
+                    </select>
+
+                    <label for="price">Precio</label>
+                    <input type="number" id="price" placeholder="Ej. 450" min="0" required>
+
+                    <button type="submit" id="submitButton">Guardar servicio</button>
+                </form>
+            </section>
+
+            <section id="servicios" class="panel panel-tabla">
+                <h2>Servicios registrados</h2>
+                <p class="ayuda">Aqui apareceran los servicios guardados.</p>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Equipo</th>
+                                <th>Servicio</th>
+                                <th>Estado</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="servicesTable">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer class="footer">
