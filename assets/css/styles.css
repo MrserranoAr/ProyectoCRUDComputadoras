@@ -87,6 +87,15 @@ body {
     cursor: pointer;
 }
 
+.btn-editar {
+    padding: 8px 12px;
+    color: #04111f;
+    background-color: #00e5ff;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .ayuda {
     color: #64748b;
 }

@@ -1,10 +1,12 @@
 const servicesTable = document.querySelector("#servicesTable");
 const serviceForm = document.querySelector("#serviceForm");
+const serviceIdInput = document.querySelector("#serviceId");
 const clientNameInput = document.querySelector("#clientName");
 const deviceInput = document.querySelector("#device");
 const serviceTypeInput = document.querySelector("#serviceType");
 const statusInput = document.querySelector("#status");
 const priceInput = document.querySelector("#price");
+const submitButton = document.querySelector("#submitButton");
 
 let services = JSON.parse(localStorage.getItem("bajaRespawServices")) || [];
 
@@ -24,7 +26,9 @@ function renderServices() {
             <td>${service.serviceType}</td>
             <td>${service.status}</td>
             <td>$${service.price}</td>
-            <td>Registrado</td>
+            <td>
+                <button class="btn-editar" onclick="editService(${service.id})">Editar</button>
+            </td>
         `;
 
         servicesTable.appendChild(row);
@@ -33,9 +37,10 @@ function renderServices() {
 
 serviceForm.addEventListener("submit", function (event) {
     event.preventDefault();
+    const serviceId = serviceIdInput.value;
 
-    const newService = {
-        id: Date.now(),
+    const serviceData = {
+        id: serviceId ? Number(serviceId) : Date.now(),
         clientName: clientNameInput.value,
         device: deviceInput.value,
         serviceType: serviceTypeInput.value,
@@ -43,10 +48,37 @@ serviceForm.addEventListener("submit", function (event) {
         price: priceInput.value
     };
 
-    services.push(newService);
+    if (serviceId) {
+        services = services.map(function (service) {
+            if (service.id === Number(serviceId)) {
+                return serviceData;
+            }
+
+            return service;
+        });
+    } else {
+        services.push(serviceData);
+    }
+
     saveServices();
     renderServices();
     serviceForm.reset();
+    serviceIdInput.value = "";
+    submitButton.textContent = "Guardar servicio";
 });
+
+function editService(id) {
+    const serviceToEdit = services.find(function (service) {
+        return service.id === id;
+    });
+
+    serviceIdInput.value = serviceToEdit.id;
+    clientNameInput.value = serviceToEdit.clientName;
+    deviceInput.value = serviceToEdit.device;
+    serviceTypeInput.value = serviceToEdit.serviceType;
+    statusInput.value = serviceToEdit.status;
+    priceInput.value = serviceToEdit.price;
+    submitButton.textContent = "Actualizar servicio";
+}
 
 renderServices();
