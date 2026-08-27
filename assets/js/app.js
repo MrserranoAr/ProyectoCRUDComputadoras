@@ -6,7 +6,11 @@ const serviceTypeInput = document.querySelector("#serviceType");
 const statusInput = document.querySelector("#status");
 const priceInput = document.querySelector("#price");
 
-const services = [];
+let services = JSON.parse(localStorage.getItem("bajaRespawServices")) || [];
+
+function saveServices() {
+    localStorage.setItem("bajaRespawServices", JSON.stringify(services));
+}
 
 function renderServices() {
     servicesTable.innerHTML = "";
@@ -40,6 +44,7 @@ serviceForm.addEventListener("submit", function (event) {
     };
 
     services.push(newService);
+    saveServices();
     renderServices();
     serviceForm.reset();
 });
