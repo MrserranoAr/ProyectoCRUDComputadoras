@@ -28,6 +28,7 @@ function renderServices() {
             <td>$${service.price}</td>
             <td>
                 <button class="btn-editar" onclick="editService(${service.id})">Editar</button>
+                <button class="btn-eliminar" onclick="deleteService(${service.id})">Eliminar</button>
             </td>
         `;
 
@@ -79,6 +80,23 @@ function editService(id) {
     statusInput.value = serviceToEdit.status;
     priceInput.value = serviceToEdit.price;
     submitButton.textContent = "Actualizar servicio";
+}
+
+function deleteService(id) {
+    const serviceToDelete = services.find(function (service) {
+        return service.id === id;
+    });
+
+    const confirmDelete = confirm("Deseas eliminar el servicio de " + serviceToDelete.clientName + "?");
+
+    if (confirmDelete) {
+        services = services.filter(function (service) {
+            return service.id !== id;
+        });
+
+        saveServices();
+        renderServices();
+    }
 }
 
 renderServices();
